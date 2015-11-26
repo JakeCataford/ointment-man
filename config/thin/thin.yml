@@ -12,4 +12,5 @@ threaded: true
 no-epoll: true
 daemonize: true
 socket: tmp/sockets/thin.sock
+chdir: /var/www/ointment-man/current
 tag: ointment-man
