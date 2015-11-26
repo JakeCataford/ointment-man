@@ -38,7 +38,7 @@ class Responder
   end
 
   def parse_message(request)
-    request = URI::Escape.decode(request)
+    request = URI.decode(request)
     params = CGI.parse(request)
     puts params
     params[:text]
