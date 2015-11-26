@@ -1,4 +1,5 @@
 require 'cgi'
+require 'json'
 
 class Responder
   attr_accessor :message
@@ -38,6 +39,6 @@ class Responder
   def parse_message(request)
     params = CGI.parse(request)
     puts params
-    params["text"]
+    params[:text]
   end
 end
