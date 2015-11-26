@@ -41,6 +41,6 @@ class Responder
     request = URI.decode(request)
     params = CGI.parse(request)
     puts params
-    params[:text].first
+    params["text"].first
   end
 end
