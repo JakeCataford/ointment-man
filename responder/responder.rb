@@ -3,15 +3,17 @@ require 'json'
 require 'uri'
 
 class Responder
-  attr_accessor :message
+  attr_accessor :request, :params, :message, :is_bot
 
   def initialize(request)
+    self.request = request
     self.message = parse_message(request)
   end
 
   def respond
     puts "Processing message #{message}"
     return failure if message.nil?
+    return failure if is_bot?
     responses = []
     Listeners::Base.descendants.each do |listener_class|
       listener = listener_class.new
@@ -29,6 +31,10 @@ class Responder
     [422, {'Content-Type'=>'application/json'}, StringIO.new]
   end
 
+  def is_bot?
+    params.key?("bot_id")
+  end
+
   private
 
   def response_from_messages(responses)
@@ -39,8 +45,7 @@ class Responder
 
   def parse_message(request)
     request = URI.decode(request)
-    params = CGI.parse(request)
-    puts params
-    params["text"].first
+    self.params = CGI.parse(request)
+    self.params["text"].first
   end
 end
