@@ -8,7 +8,7 @@ module Listeners
       message =~ self.class.matcher
     end
 
-    def response_for(message)
+    def response_for(message, match_data)
       raise NotImplementedError
     end
 

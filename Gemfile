@@ -10,3 +10,5 @@ gem 'rvm1-capistrano3', require: false
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-unicorn'
 gem 'capistrano-unicorn-nginx', '~> 3.2.0'
+gem 'marky_markov'
+gem 'nokogiri'

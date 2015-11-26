@@ -19,7 +19,8 @@ class Responder
       listener = listener_class.new
 
       next unless listener.should_respond?(message)
-      message_to_respond_with = listener.response_for(message)
+      match_data = listener_class.matcher.match(message)
+      message_to_respond_with = listener.response_for(message, match_data)
 
       responses.push(message_to_respond_with)
     end
