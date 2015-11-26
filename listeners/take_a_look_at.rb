@@ -3,7 +3,7 @@ require 'uri'
 require 'nokogiri'
 module Listeners
   class TakeALookAt < Base
-    listen_for(/ointment man, take a look at (https?:.*)/i)
+    listen_for(/ointment man, take a look at.*?(https?:[a-z0-9\-\_\/\.]*)/i)
 
     def response_for(message, match_data)
       markov = Markov.new
