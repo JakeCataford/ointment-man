@@ -1,7 +1,9 @@
-class Listeners::HelloWorld < Listeners::Base
-  listen_for(/Hello\?/i)
+module Listeners
+  class HelloWorld < Base
+    listen_for(/Hello\?/i)
 
-  def response_for(message, _)
-    "Hello World!"
+    def response_for(message, _)
+      "Hello World!"
+    end
   end
 end

@@ -1,6 +1,6 @@
 require 'active_support'
 require './ointment_man'
-
+require './listeners/base'
 Dir[File.join(File.dirname(__FILE__), 'helpers', '*.rb')].each {|file| require file }
 Dir[File.join(File.dirname(__FILE__), 'listeners', '*.rb')].each {|file| require file }
 Dir[File.join(File.dirname(__FILE__), 'responder', '*.rb')].each {|file| require file }
