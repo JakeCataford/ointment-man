@@ -1,2 +1,2 @@
 #!/bin/sh
-curl --data "{ \"text\" : \"$@\" }" http://ointment.svblm.com
+curl --data "text=$@" http://localhost:4455

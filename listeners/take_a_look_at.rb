@@ -3,17 +3,17 @@ require 'uri'
 require 'nokogiri'
 module Listeners
   class TakeALookAt < Base
-    listen_for(/ointment man, take a look at (.*)\?/i)
+    listen_for(/ointment man, take a look at (https?:.*)/i)
 
     def response_for(message, match_data)
       markov = Markov.new
-      info = paragraphs_in_webpage(match_data.first)
+      info = paragraphs_in_webpage(match_data.captures.first)
       markov.learn(info)
       sentence = markov.sentence
       markov.save
       sentence
-    rescue StandardError
-      "I don't know how to access that webpage."
+    rescue StandardError => e
+      "I don't know how to access that webpage. (#{e.message})"
     end
 
     def paragraphs_in_webpage(url)
