@@ -26,6 +26,9 @@ class Responder
     end
 
     [200, {'Content-Type'=>'application/json'}, StringIO.new(response_from_messages(responses))]
+
+  rescue Exception => e
+    [200, {'Content-Type'=>'application/json'}, StringIO.new("Ah, shit. #{e.message}")]
   end
 
   def failure
