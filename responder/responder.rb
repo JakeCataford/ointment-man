@@ -1,5 +1,6 @@
 require 'cgi'
 require 'json'
+require 'uri'
 
 class Responder
   attr_accessor :message
@@ -37,6 +38,7 @@ class Responder
   end
 
   def parse_message(request)
+    request = URI::Escape.decode(request)
     params = CGI.parse(request)
     puts params
     params[:text]
