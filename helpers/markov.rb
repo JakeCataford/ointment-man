@@ -1,7 +1,7 @@
 require 'marky_markov'
 class Markov
   def initialize
-    @markov = MarkyMarkov::Dictionary.new('/tmp/dictionary')
+    @markov = MarkyMarkov::PersistentDictionary.new('/tmp/dictionary')
   end
 
   def sentence(that_starts_with: nil)
