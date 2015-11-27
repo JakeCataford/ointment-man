@@ -43,7 +43,7 @@ class Responder
 
   def response_from_messages(responses)
     responses.compact!
-    text = responses.join('\n')
+    text = responses.join(' ')
     { text: text }.to_json
   end
 
