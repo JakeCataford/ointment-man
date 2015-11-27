@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/JakeCataford/marky_markov.git
-  revision: 845542199740b7d885210cee73e0c11154bc7402
+  revision: 70b546d36a5878b1c9f7f31ea3a92563482137b0
   specs:
     marky_markov (0.3.5)
       msgpack
