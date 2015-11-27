@@ -4,7 +4,7 @@ module Listeners
 
     def response_for(message, _)
       markov = Markov.new
-      markov.sentence
+      markov.sentence(that_starts_with: "I think that")
     end
   end
 end
