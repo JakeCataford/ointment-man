@@ -6,7 +6,7 @@ module Listeners
       markov = Markov.new
       markov.learn(message)
       markov.save
-      if rand > 0.1
+      if rand < 0.1
         markov.sentence
       else
         ""
