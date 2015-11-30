@@ -8,7 +8,7 @@ module Listeners
     def response_for(message, _)
       message = RandomWord.adjs.next
       message << " "
-      message << RandomWord.noun
+      message << RandomWord.nouns.next
       message
     end
   end
