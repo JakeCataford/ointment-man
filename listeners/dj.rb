@@ -6,9 +6,10 @@ module Listeners
     listen_for(/dj.*/i)
 
     def response_for(message, _)
-      message = RandomWord.adjs.next
+      message = "DJ "
+      message << RandomWord.adjs.next.gsub(/_/, " ")
       message << " "
-      message << RandomWord.nouns.next
+      message << RandomWord.nouns.next.gsub(/_/, " ")
       message
     end
   end
